@@ -1,6 +1,9 @@
+import sys
+import os
+
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-from typing import Dict, Any, Generator, List
 import pandas as pd
 import numpy as np
 import logging
@@ -82,8 +85,6 @@ async def predict(request: PredictionRequest):
 async def health_check():
     """Health check эндпоинт"""
 
-    model_status = "loaded" if model_loader.model is not None else "not_loaded"
-    
     return {
         "status": "healthy",
         "model_loaded": model_loader.model is not None
