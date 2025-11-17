@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "2a0cbcce-a487-4b64-8708-1ab84d799876",
+		"name": "Price Prediction API",
+		"description": "Тесты для ML API предсказания цен",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6735838"
+	},
+	"item": [
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Predict Price",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_tier\": \"A\",\n    \"material\": \"steel\",\n    \"thickness_mm\": 2.5,\n    \"length_mm\": 1000.0,\n    \"width_mm\": 500.0,\n    \"holes_count\": 10,\n    \"bends_count\": 5,\n    \"weld_length_mm\": 200.0,\n    \"cut_length_mm\": 1500.0,\n    \"route\": \"laser_cut\",\n    \"tolerance\": \"standard\",\n    \"surface_finish\": \"paint\",\n    \"coating\": \"powder\",\n    \"qty\": 100,\n    \"due_days\": 14,\n    \"engineer_score\": 7.5,\n    \"part_weight_kg\": 15.5\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8000/predict",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"predict"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
